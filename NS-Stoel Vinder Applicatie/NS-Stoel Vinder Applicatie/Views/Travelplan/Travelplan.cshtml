@@ -1,0 +1,68 @@
+﻿@model NS_Stoel_Vinder_Applicatie.ViewModels.TravelplanViewModel
+@using StoelVinder.lib.DAL.Models
+@using Microsoft.AspNetCore.Http
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <form>
+        <div class="text-center">
+
+            <br />
+            <br />
+            <div class="form-inline">
+                <div id="links" class="text-left col-md-3">
+                    <a asp-controller="Travelplan" asp-action="History">Geschiedenis</a>
+                    <br />
+                </div>
+
+                <div class="text-right col-md-6">
+                </div>
+
+                <div class="text-right col-md-3">
+                                            Halo Mw/Mr @ViewBag.cookievalue                
+                    <br />
+                    <a asp-action="Logout" asp-controller="Account">Uitloggen</a>
+                    <br />
+                </div>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </form>
+    <br />
+    <br />
+    <form asp-controller="Travelplan" asp-action="Travelplan" method="post">
+        <select asp-for="Beginstation" class="form-control" id="Startstation" name="Beginstation">
+            <option>Kies uw beginstation</option>
+            @foreach (Station station in Model.Stations)
+            {
+                <option>@station.Name</option>
+            }
+
+        </select>
+        <br />
+        <br />
+        <select asp-for="Eindstation" class="form-control" id="Endstation" name="Eindstation">
+            <option>Kies uw eindstation</option>
+            @foreach (Station station in Model.Stations)
+            {
+                <option>@station.Name</option>
+            }
+        </select>
+        <br />
+        <br />
+        <button class="btn btn-primary w-100" type="submit">Plannen</button>
+    </form>
+
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+

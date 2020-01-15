@@ -1,0 +1,67 @@
+﻿@model NS_Stoel_Vinder_Applicatie.ViewModels.TicketViewModel
+@using StoelVinder.lib.DAL.Models
+@{
+    ViewData["Title"] = "Ticket";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <p>Dit is de ticket van uw gereserveerde stoel(en).</p>
+</div>
+
+<form method="post" action="##">
+    <div class="text-center col-md-2">
+    </div>
+    <br />
+    <div class="text-center col-md-8 offset-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="~/images/LogoNS.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">NS Ticket</h5>
+                <p class="card-text">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="ID" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                   @*@Html.Raw(Session["fileName"].ToString())*@
+                <label asp-for="@Model.Firstname" class="control-label"></label>
+                <label asp-for="@Model.Insertion" class="control-label"></label>
+                <label asp-for="@Model.Lastname" class="control-label"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-3">
+                <label asp-for="@Model.Startstation" class="control-label"></label>
+                <label asp-for="@Model.Endstation" class="control-label"></label>
+                <label asp-for="@Model.Time" class="control-label"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-3">
+                <label asp-for="@Model.TrainClass" class="control-label"></label>
+                <label asp-for="@Model.Row" class="control-label"></label>
+                <label asp-for="@Model.Seatnumber" class="control-label"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-3">
+                <label asp-for="@Model.Price" class="control-label"></label>
+            </div>
+        </div>
+    </div>
+    @*<form method="get" action="file.doc">*@
+    </div>
+    </div>
+    <br />
+    <div class="text-center col-md-8 offset-md-2">
+        @*<a asp-controller="Ticket" asp-action="Download" class="btn btn-primary">Download Ticket</a>*@
+        @*@Html.ActionLink("Click here to download", "DownloadFile", new { })*@
+
+        @*</form>*@
+    </div>
+    <br />
+    <br />
+</form>
+

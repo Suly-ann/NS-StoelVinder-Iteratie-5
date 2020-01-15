@@ -1,0 +1,45 @@
+﻿@model NS_Stoel_Vinder_Applicatie.ViewModels.DeleteViewModel
+
+@{
+    ViewData["Title"] = "Account Verwijderen";
+}
+
+@Html.Raw(TempData["msg"])
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>U kunt hier uw account verwijderen</p>
+</div>
+
+
+<br />
+<div class="text-left">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" onsubmit="return myFunction(this);">
+                @Html.ValidationMessageFor(m => m.Email)
+                <div asp-validation-summary="All" class="text-danger"></div>
+                @ViewBag.Message
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <br />
+                <div id="links" class="form-group text-right">
+                    <button type="reset" value="clear" class="btn btn-primary">Annuleren</button> &nbsp; &nbsp; &nbsp; <button type="submit" class="btn btn-primary">Verwijderen</button>                   
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

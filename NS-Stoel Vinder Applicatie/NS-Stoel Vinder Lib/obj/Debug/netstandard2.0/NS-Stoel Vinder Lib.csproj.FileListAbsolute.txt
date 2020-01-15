@@ -1,0 +1,3 @@
+C:\Users\PC1\Documents\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Lib\obj\Debug\netstandard2.0\NS-Stoel Vinder Lib.csprojAssemblyReference.cache
+C:\Users\PC1\Documents\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Lib\obj\Debug\netstandard2.0\NS-Stoel Vinder Lib.AssemblyInfoInputs.cache
+C:\Users\PC1\Documents\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Lib\obj\Debug\netstandard2.0\NS-Stoel Vinder Lib.AssemblyInfo.cs

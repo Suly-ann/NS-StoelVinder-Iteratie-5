@@ -1,0 +1,3 @@
+C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\StoelVinderLibrary\obj\Debug\netcoreapp3.0\StoelVinderLibrary.csprojAssemblyReference.cache
+C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\StoelVinderLibrary\obj\Debug\netcoreapp3.0\StoelVinderLibrary.AssemblyInfoInputs.cache
+C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\StoelVinderLibrary\obj\Debug\netcoreapp3.0\StoelVinderLibrary.AssemblyInfo.cs

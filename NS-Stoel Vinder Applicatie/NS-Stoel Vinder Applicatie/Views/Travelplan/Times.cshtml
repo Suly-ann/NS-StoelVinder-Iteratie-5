@@ -1,0 +1,80 @@
+﻿
+@model NS_Stoel_Vinder_Applicatie.ViewModels.TimesViewModel
+@using StoelVinder.lib.DAL.Models
+
+@{
+    ViewData["Title"] = "Mogelijke reistijden";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <p>Kies een mogelijke tijd die u wilt reizen.</p>
+</div>
+
+<form>
+   
+    <div class="text-center col-md-8 offset-md-1">
+        <br />
+        <br /> 
+        <div class="form-inline my-2 my-lg-0" style="width: 50rem;">
+            <input class="form-control mr-sm-2 w-100 text-center" type="search" id="myInput" onkeyup="myFunction()" placeholder="Zoek uw tijd hier..." title="Type een tijd in" aria-label="Search">
+        </div>
+        <div class="card" style="width: 50rem;">
+            <br />
+            <div class="list-group">
+                <table class="display text-center w-100">
+                    <thead>
+                        <tr>
+                            <th>Tijden</th>
+                            <th>Spoor</th>
+                            <th>Treinnummer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        @foreach (Travelplan tvp in Model.Trt)
+                        {
+                            <tr>
+                                <td>
+                                    @*<a asp-controller="Travelplan" asp-action="ReisplanDetails"  asp-route-id="@tvp.ID">*@
+                                    <a href="@Url.Action("ClassView", "Wagon", new {trainrail = tvp.Railstation})">
+                                        @tvp.Time.ToShortTimeString()
+                                    </a>
+                                </td>
+                                <td>@tvp.Railstation</td>
+                                <td>@tvp.Trainnr</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <script>
+                    function myFunction() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("myTable");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center col-md-2">
+    </div>
+    <br />
+    <br />
+</form>

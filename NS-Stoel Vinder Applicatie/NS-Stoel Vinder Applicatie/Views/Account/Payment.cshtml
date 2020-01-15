@@ -1,0 +1,47 @@
+﻿@model NS_Stoel_Vinder_Applicatie.ViewModels.PaymethodeViewModel
+@{
+    ViewData["Title"] = "Betaalmethode";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <p>Kies een betaalmethode.</p>
+</div>
+
+<form>
+    <div id="links" class="text-center col-md-2">
+    </div>
+
+    <div id="links" class="text-center col-md-8 offset-md-2">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="15">           
+
+            @*<div class="container"     
+            <a href="/Home/Index" class="navbar-brand"> <img src="~/images/LogoNS.png" alt="Company logo" width="50" height="20" /></a>
+            <a href="/Home/Index" class="navbar-brand"> <img src="~/images/LogoNS.png" alt="Company logo" width="50" height="20" /></a>
+            <a href="/Home/Index" class="navbar-brand"> <img src="~/images/LogoNS.png" alt="Company logo" width="50" height="20" /></a>
+            </div>*@
+        </textarea>
+
+        </div>
+    </div>
+
+
+    <div class="form-inline col-md-2 offset-md-2">
+        <div id="links" class="text-left">
+            <br />
+            <button type="reset" value="clear" class="btn btn-primary">Annuleren</button>
+            <br />
+        </div>
+        <div id="rechts" class="text-right">
+            <br />
+            <a asp-controller="Ticket" asp-action="Ticket" button type="submit" class="btn btn-primary">Betalen</a>
+            <br />
+        </div>
+    </div>
+
+
+</form>
+

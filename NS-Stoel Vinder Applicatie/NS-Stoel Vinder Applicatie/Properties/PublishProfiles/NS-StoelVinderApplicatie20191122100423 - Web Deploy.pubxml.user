@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhj0HP7A+kEiju8Qz4svdZgAAAAACAAAAAAAQZgAAAAEAACAAAAAcsqnGWibOMlkvyEiJaGvK7amiTBXNRYCSPUWMiwiSngAAAAAOgAAAAAIAACAAAAAa0viTyIumOK8JTwhG3Mr9YPKFQJzU6dvqofyoRY/AyoAAAAAx+ZS2AjXiiCo+H9HmDhv1Ac9umPrXw0vHXVXx9OCpETFnLzilHfQzv8VKyGzkpI+fblwezzx7ouH1MATrnisbJ98bLjY0d76BilHAj8AMD6DSps+mocnuUfC6R0Cb0TASxjkjoFZqKAiijo9MZ383rQHZurOKJcxQ/HSg8p9nzkAAAACk7uG3GwIf6aiLyYz8eNA2G4kTGbOsw7JAVK2IIvyE9bA844QhCx2lMGSz5fXxQXwABIAswS3V5XlGFg7pNVUt</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=mssql.fhict.local%3bDatabase=dbi426932%3bUser Id=dbi426932%3bPassword=Jennifer07%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

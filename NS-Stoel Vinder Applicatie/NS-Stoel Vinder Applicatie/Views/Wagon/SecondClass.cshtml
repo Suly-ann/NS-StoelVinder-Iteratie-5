@@ -1,0 +1,70 @@
+﻿
+@model NS_Stoel_Vinder_Applicatie.ViewModels.TrainViewModel
+@using StoelVinder.lib.DAL.Models
+
+@{
+    ViewData["Title"] = "2de Klasse";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>Kies een stoel om te reserveren.</p>
+</div>
+
+<form>
+    <div class="text-center">
+
+        <br />
+        <br />
+        <div class="form-inline">
+            <div class="row">
+                <div id="links" class="text-center col-md-2">
+
+
+                </div>
+
+                <div id="midden" class="text-center col-md-8">
+                    <div class="text-center offset-md-2">
+                        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                            @foreach (Seat seats in Model.Seats)
+                            {
+                                if (seats.IsGereserveerd == false)
+                                {                                    
+                                    <button class="btn btn-secondary" href=" @Url.Action("Ticket", "Ticket", new { seatnumber = seats })"> @seats.ID @seats.Row</button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-danger" href=" @Url.Action("Wagon", "FirstClass", new { seatnumber = seats })"> @seats.ID @seats.Row</button>
+                                }
+
+                            }                            
+
+                            <br />
+                        </div>
+                        <br />
+                        <br />
+
+                        <div class="">
+                            <select class="form-control w-100" id="Wagonnumber" name="Wagonnumber">
+                                <option>Kies een wagon</option>
+                                @foreach (int wagonnummers in Model.Wagonnumber)
+                                {
+                                    <option>@wagonnummers</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rechts" class="text-center col-md-2">
+
+
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</form>

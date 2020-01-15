@@ -1,0 +1,60 @@
+﻿@model NS_Stoel_Vinder_Applicatie.ViewModels.HistoryViewModel
+@{
+    ViewData["Title"] = "Historie";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <br />
+    <br />
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="~/images/LogoNS.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">NS Ticket</h5>
+        <p class="card-text">
+            @*@foreach (Travelplan tvp in Model.Trt)
+            {
+                foreach (Account acc in Model.Acc)
+                {
+                    <tr>
+                        <td>
+                            <a asp-controller="Travelplan" asp-action="History"  asp-route-id="@tvp.ID">
+                            <a asp-controller="Travelplan" asp-action="History" asp-route-id="@acc.ID">
+                                @acc.Firstname
+                            </a>
+                        </td>
+                        <td>@acc.Insertion</td>
+                        <td>@acc.Lastname</td>
+                        <td>@tvp.Startstation</td>
+                        <td>@tvp.Endstation</td>
+                        <td>@tvp.Time.ToShortTimeString()</td>
+                    </tr>
+                }
+            }*@
+        </p>
+        <button type="submit" class="btn btn-primary">Download</button>
+    </div>
+</div>
+<br />
+<br />
+<div class="card" style="width: 18rem;">
+    <img src="~/images/LogoNS.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">NS Ticket</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="submit" class="btn btn-primary">Download</button>
+    </div>
+</div>
+<br />
+<br />
+<div class="card" style="width: 18rem;">
+    <img src="~/images/LogoNS.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">NS Ticket</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="submit" class="btn btn-primary">Download</button>
+    </div>
+</div>
+<br />
+<br />

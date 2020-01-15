@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>NS_Stoel_Vinder_Applicatie</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\video\Reclame.mp4" />
+    <None Include="wwwroot\images\LogoNS.png" />
+    <None Include="wwwroot\images\NS.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NS-Stoel Vinder Lib\StoelVinder.lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="StoelVinder.lib">
+      <HintPath>..\NS-Stoel Vinder Lib\bin\Debug\netstandard2.0\StoelVinder.lib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
