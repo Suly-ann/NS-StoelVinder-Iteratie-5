@@ -7,29 +7,29 @@ using System;
 namespace NS_StoelVinder_UnitTest
 {
     [TestClass]
-    public class AccountUnitTest
+    public class AccountUnitTest 
     {
-        private readonly AccountTestContext loginTestContext = new AccountTestContext();
+        private AccountRepo accountRepro;
 
         [TestInitialize]
         public void Setup()
         {
-            
+            accountRepro = new AccountRepo(new AccountTestContext());
         }
 
         [TestMethod]
         public void TestValidLoginUser()
         {
-            Account account = new Account("Emailadres", "Wachtwoord");
-            bool testlogin = loginTestContext.LoginContext(account.Email, account.Password);
+            Account account = new Account("Emailadres", "Persoon123");
+            bool testlogin = accountRepro.LogintoTravelplan(account);
             Assert.IsTrue(testlogin);
         }
 
         [TestMethod]
         public void TestNotValidLoginUser()
         {
-            Account account = new Account("Email", "Password");
-            bool testlogin = loginTestContext.LoginContext(account.Email, account.Password);
+            Account account = new Account("Email", "Naam");
+            bool testlogin = accountRepro.LogintoTravelplan(account);
             Assert.IsFalse(testlogin);
 
         }
@@ -37,51 +37,85 @@ namespace NS_StoelVinder_UnitTest
         [TestMethod]
         public void TestValidRegistration()
         {
-            Account account = new Account(1, "Coen", "van de", "Berg", DateTime.Today, "Emailadres", "Wachtwoord");
-            bool testlogin = loginTestContext.RegistrationContext(account.ID, account.Firstname, account.Insertion, account.Lastname, account.DateOfBirth, account.Email, account.Password);
-            Assert.IsTrue(testlogin);
+            Account account = new Account(1, "Coen", "van de", "Berg", DateTime.Today, "Emailadres", "Persoon123", "Persoon123");
+            bool testregistration = accountRepro.Registration(account);
+            Assert.IsTrue(testregistration);
         }
 
         [TestMethod]
         public void TestNotValidRegistration()
         {
-            Account account = new Account(3, "Lisa", "van", "Dijk", DateTime.Now, "Emailadres", "Wachtwoord");
-            bool testlogin = loginTestContext.RegistrationContext(account.ID, account.Firstname, account.Insertion, account.Lastname, account.DateOfBirth, account.Email, account.Password);
-            Assert.IsFalse(testlogin);
+            Account account = new Account(2, "Ben", "", "Bakker", DateTime.Now, "ben@hotmail.com", "Ben01", "Ben01");
+            bool testregistration = accountRepro.Registration(account);
+            Assert.IsFalse(testregistration);
 
         }
 
         [TestMethod]
         public void TestValidDeleteAccount()
         {
-            Account account = new Account("Emailadres", "Wachtwoord");
-            bool testlogin = loginTestContext.DeleteContext(account.Email, account.Password);
-            Assert.IsTrue(testlogin);
+            Account account = new Account("Emailadres", "Persoon123");
+            bool testdelete = accountRepro.DeleteAccount(account);
+            Assert.IsTrue(testdelete);
         }
 
         [TestMethod]
         public void TestNotValidDeleteAccount()
         {
             Account account = new Account("Delete", "Account");
-            bool testlogin = loginTestContext.DeleteContext(account.Email, account.Password);
-            Assert.IsFalse(testlogin);
+            bool testdelete = accountRepro.DeleteAccount(account);
+            Assert.IsFalse(testdelete);
 
         }
 
         [TestMethod]
         public void TestValidResetPassword()
         {
-            Account account = new Account("Emailadres", "Wachtwoord");
-            bool testlogin = loginTestContext.ResetPasswordContext(account.Email, account.Password);
-            Assert.IsTrue(testlogin);
+            Account account = new Account("Emailadres", "Persoon123");
+            bool testreset = accountRepro.ResetPassword(account);
+            Assert.IsTrue(testreset);
         }
 
         [TestMethod]
         public void TestNotValidResetPassword()
         {
-            Account account = new Account("Wachtwoord", "Password");
-            bool testlogin = loginTestContext.ResetPasswordContext(account.Email, account.Password);
-            Assert.IsFalse(testlogin);
+            Account account = new Account("Persoon123", "Password");
+            bool testreset = accountRepro.ResetPassword(account);
+            Assert.IsFalse(testreset);
+
+        }
+
+        [TestMethod]
+        public void TestValidCheckEmailAndPassword()
+        {
+            Account account = new Account("Emailadres", "Persoon123");
+            bool testreset = accountRepro.CheckEmailAndPassword(account);
+            Assert.IsTrue(testreset);
+        }
+
+        [TestMethod]
+        public void TestNotValidCheckEmailAndPassword()
+        {
+            Account account = new Account("Persoon123", "Password");
+            bool testreset = accountRepro.CheckEmailAndPassword(account);
+            Assert.IsFalse(testreset);
+
+        }
+
+        [TestMethod]
+        public void TestValidCheckIfEmailExist()
+        {
+            Account account = new Account("Emailadres");
+            bool testreset = accountRepro.CheckIfEmailExist(account);
+            Assert.IsTrue(testreset);
+        }
+
+        [TestMethod]
+        public void TestNotValidCheckIfEmailExist()
+        {
+            Account account = new Account("Email");
+            bool testreset = accountRepro.CheckIfEmailExist(account);
+            Assert.IsFalse(testreset);
 
         }
 

@@ -28,7 +28,7 @@
                         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                             @foreach (Seat seats in Model.Seats)
                             {
-                                if (seats.IsGereserveerd == false)
+                                if (seats.IsReserved == false)
                                 {                                    
                                     <button class="btn btn-secondary" href=" @Url.Action("Ticket", "Ticket", new { seatnumber = seats })"> @seats.ID @seats.Row</button>
                                 }

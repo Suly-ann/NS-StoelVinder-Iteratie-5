@@ -1,6 +1,5 @@
 ﻿using StoelVinder.lib.DAL.Interfaces;
 using StoelVinder.lib.DAL.Models;
-using System;
 using System.Collections.Generic;
 
 namespace StoelVinder.lib.BLL
@@ -14,24 +13,19 @@ namespace StoelVinder.lib.BLL
             this.context = context;
         }
 
-        public bool SeatPosition(Seat seat)
-        {
-            return context.SeatPosition(seat);
-        }
-
         public bool IsReserved(Seat seat)
         {
             return context.IsReserved(seat);
         }
 
-        public List<Seat> GetAllSeat1steKlasse(string Beginstation, string Eindstation, int Spoor)
+        public List<Seat> GetAllSeat1steKlasse(Travelplan travelplan/*, int Wagonnummer*/)
         {
-            return context.GetAllSeat1steKlasse(Beginstation, Eindstation, Spoor);
+            return context.GetAllSeat1steKlasse(travelplan/*, Wagonnummer*/);
         }
 
-        public List<Seat> GetAllSeat2deKlasse(string Beginstation, string Eindstation, int Spoor)
+        public List<Seat> GetAllSeat2deKlasse(Travelplan travelplan)
         {
-            return context.GetAllSeat2deKlasse(Beginstation, Eindstation, Spoor);
+            return context.GetAllSeat2deKlasse(travelplan);
         }
     }
 }

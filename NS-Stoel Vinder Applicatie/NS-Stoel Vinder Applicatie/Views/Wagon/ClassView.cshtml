@@ -1,7 +1,4 @@
-﻿
-@model NS_Stoel_Vinder_Applicatie.ViewModels.ClassesViewModel
-@using StoelVinder.lib.DAL.Models
-@{
+﻿@{
     ViewData["Title"] = "Klasse";
 }
 <div class="text-center">
@@ -25,13 +22,6 @@
                     <br />
 
                     <div class="inline-block">
-                        @*@foreach (Wagon wgn in Model.Wagons)
-                            {
-                                <button href="@Url.Action("FirstClass", "Wagon", new {trainclass = wgn.TrainClass})"></button>
-                                <button href="@Url.Action("SecondClass", "Wagon", new {trainclass = wgn.TrainClass})"></button>
-                            
-                            }*@
-
                         <a asp-controller="Wagon" asp-action="FirstClass" button type="submit" class="btn btn-danger w-25">1ste Klasse</a>
 
                         <a asp-controller="Wagon" asp-action="SecondClass" button type="submit" class="btn btn-primary w-25" style="margin-right:20px">2de Klasse</a>

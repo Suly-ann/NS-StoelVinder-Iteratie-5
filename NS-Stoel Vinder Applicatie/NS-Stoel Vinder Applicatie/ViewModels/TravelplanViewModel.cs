@@ -19,23 +19,12 @@ namespace NS_Stoel_Vinder_Applicatie.ViewModels
         [Required(ErrorMessage = "Kies uw eindstation")]
         [DataType(DataType.Text)]
         public string Eindstation { get; set; }
-
         public DateTime Time { get; set; }
-
-        public Account AccountTeVerwijderen { get; set; }
-
-        public InlogViewModel inlogID { get; set; }
-
-        public List<Account> acs { get; set; }
-
-
-        //public Startstation Startstation
-
+        
         public TravelplanViewModel()
         {
 
         }
-
 
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using NS_Stoel_Vinder_Applicatie.Converter;
 using Microsoft.AspNetCore.Http;
@@ -20,20 +19,8 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
         {
 
             string email = Request.Cookies["nsstoelvinder"];
-
             ViewData["Emailadres"] = email;
 
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Index(InlogViewModel inlog)
-        {
-            if (ModelState.IsValid)
-            {
-
-
-            }
             return View();
         }
 
@@ -46,8 +33,10 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
         private void WriteCookie(string cookiename, string cookievalues, bool remember)
         {
-            CookieOptions cookies = new CookieOptions();
-            cookies.Expires = DateTime.Now.AddDays(1);
+            CookieOptions cookies = new CookieOptions
+            {
+                Expires = DateTime.Now.AddDays(1)
+            };
             if (remember)
             {
                 Response.Cookies.Append(cookiename, cookievalues, cookies);
@@ -65,7 +54,6 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
             {
                 Response.Cookies.Delete(name);
             }
-
         }
 
         //Register GET
@@ -77,30 +65,29 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
         //Register POST
         [HttpPost]
-        public IActionResult Registration(RegistrationViewModel registration)
+        public IActionResult Registration(AccountViewModel accountView)
         {
             AccountViewModelConverter avc = new AccountViewModelConverter();
-            RegistrationViewModelConverter rp = new RegistrationViewModelConverter();
             if (ModelState.IsValid)
             {
-                Account reg = avc.viewModeltoAccount(registration);
-                if (accountRepo.CheckIfEmailExist(reg.Email) == true)
+                Account account = avc.ViewModeltoAccount(accountView);
+                if (accountRepo.CheckIfEmailExist(account) == true)
                 {
                     ModelState.AddModelError("Email", "Dit e-mailadres bestaat al");
                     return View("Registration");
                 }
-
                 else
                 {
-                    accountRepo.Registration(rp.viewModeltoAccount(registration));
-                    CookieOptions option = new CookieOptions();
-                    option.Expires = DateTime.Now.AddMinutes(30);
-                    Response.Cookies.Append("nsstoelvinder", reg.Email, option);
+                    accountRepo.Registration(account);
+                    CookieOptions option = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddMinutes(30)
+                    };
+                    Response.Cookies.Append("nsstoelvinder", account.Email, option);
                     return RedirectToAction("Travelplan", "Travelplan");
                 }
-
             }
-            return View(registration);
+            return View(accountView);
         }
 
 
@@ -115,28 +102,26 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
         [HttpPost]
         public IActionResult Login(InlogViewModel login)
         {
-            
             AccountViewModelConverter avc = new AccountViewModelConverter();
-            InlogViewModelConverter inl = new InlogViewModelConverter();
             if (ModelState.IsValid)
             {
-                Account reg = avc.accountToViewmodel(login);
-                if (accountRepo.CheckEmailAndPassword(reg.Email, reg.Password) == true)
+                Account reg = avc.AccountToViewmodel(login);
+                if (accountRepo.CheckEmailAndPassword(reg) == true)
                 {
-                    CookieOptions option = new CookieOptions();
-                    option.Expires = DateTime.Now.AddMinutes(30);
+                    CookieOptions option = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddMinutes(30)
+                    };
                     Response.Cookies.Append("nsstoelvinder", reg.Email, option);
                     HttpContext.Session.SetString("Emailadres", login.Email);
                     return RedirectToAction("Travelplan", "Travelplan");
                 }
-
                 else
                 {
                     ModelState.AddModelError("Email", "Foute e-mailadres of wachtwoord");
-                    accountRepo.LogintoTravelplan(inl.viewModeltoAccount(login));
+                    accountRepo.LogintoTravelplan(reg);
                     return View("Login");
                 }
-
             }
             return View(login);
         }
@@ -164,7 +149,7 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
         }
 
-        
+
         [HttpGet]
         public IActionResult Delete()
         {
@@ -175,14 +160,13 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
         public IActionResult Delete(DeleteViewModel del)
         {
             AccountViewModelConverter avc = new AccountViewModelConverter();
-            DeleteViewModelConverter dvt = new DeleteViewModelConverter();
 
             if (ModelState.IsValid)
             {
-                Account reg = avc.accountToDeleteViewmodel(del);
-                if (accountRepo.CheckIfEmailExist(reg.Email) == true)
+                Account reg = avc.AccountToDeleteViewmodel(del);
+                if (accountRepo.CheckIfEmailExist(reg) == true)
                 {
-                    accountRepo.DeleteAccount(dvt.viewModeltoAccount(del));                    
+                    accountRepo.DeleteAccount(reg);
                     return RedirectToAction("Login", "Account");
                 }
                 else
@@ -190,33 +174,29 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
                     ModelState.AddModelError("Email", "Dit e-mailadres bestaat niet");
                     return View("Delete");
                 }
-
             }
-
             return View(del);
-
         }
-       
+
         [HttpGet]
         public IActionResult ResetPassword()
         {
             return View();
         }
 
-       
+
         [HttpPost]
         public IActionResult ResetPassword(ResetPasswordViewModel reset)
         {
 
             AccountViewModelConverter avc = new AccountViewModelConverter();
-            ResetPasswordViewModelConverter cvt = new ResetPasswordViewModelConverter();
 
             if (ModelState.IsValid)
             {
-                Account reg = avc.accountToResetViewmodel(reset);
-                if (accountRepo.CheckIfEmailExist(reg.Email) == true)
+                Account reg = avc.AccountToResetViewmodel(reset);
+                if (accountRepo.CheckIfEmailExist(reg) == true)
                 {
-                    accountRepo.ResetPassword(cvt.viewModeltoAccount(reset));
+                    accountRepo.ResetPassword(reg);
                     return RedirectToAction("Login", "Account");
                 }
                 else
@@ -224,9 +204,7 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
                     ModelState.AddModelError("Email", "Dit e-mailadres bestaat niet");
                     return View("ResetPassword");
                 }
-
             }
-
             return View(reset);
         }
 

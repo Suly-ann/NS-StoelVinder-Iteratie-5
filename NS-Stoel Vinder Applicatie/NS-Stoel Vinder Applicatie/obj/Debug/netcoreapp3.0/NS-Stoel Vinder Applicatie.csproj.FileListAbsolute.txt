@@ -309,22 +309,18 @@ C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vind
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Account\Delete.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Account\Index.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Account\Payment.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Account\Registration.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Home\Cookies.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Reclame\Video.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Ticket\Ticket.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Train\Train.cshtml.g.cs
-C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Travelplan\History.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Travelplan\Times.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Travelplan\Travelplan.cshtml.g.cs
-C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Wagon\ClassView.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Wagon\FirstClass.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Wagon\SecondClass.cshtml.g.cs
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -454,4 +450,5 @@ C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vind
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\bin\Debug\netcoreapp3.0\StoelVinder.lib.pdb
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\NS-Stoel Vinder Applicatie.Views.pdb
 C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\NS-Stoel Vinder Applicatie.csproj.CopyComplete
-C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Paymethode\Paymethode.cshtml.g.cs
+C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Wagon\ClassView.cshtml.g.cs
+C:\Users\PC1\Documents\Semester 2\NS-Stoel Vinder Applicatie-1 (1)\NS-Stoel Vinder Applicatie\NS-Stoel Vinder Applicatie\obj\Debug\netcoreapp3.0\Razor\Views\Reclame\Video.cshtml.g.cs

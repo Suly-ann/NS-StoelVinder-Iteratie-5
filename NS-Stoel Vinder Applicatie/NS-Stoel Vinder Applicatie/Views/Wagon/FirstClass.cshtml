@@ -28,7 +28,7 @@
                         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                             @foreach (Seat seats in Model.Seats)
                             {
-                                if (seats.IsGereserveerd == false)
+                                if (seats.IsReserved == false)
                                 {
                                     <button class="btn btn-secondary" href=" @Url.Action("Ticket", "Ticket", new { seatnumber = seats })"> @seats.ID @seats.Row</button>
                                 }
@@ -50,7 +50,7 @@
                                 <option>Kies een wagon</option>
                                 @foreach (int wagonnummers in Model.Wagonnumber)
                                 {
-                                    <option>@wagonnummers</option>
+                                    <option class="wagonNrVal" value="@wagonnummers">@wagonnummers</option>
                                 }
 
                             </select>
@@ -70,3 +70,19 @@
         </div>
     </div>
 </form>
+
+<script>
+    var id;
+    $('#Wagonnumber').on("change", function () {
+        id = $(this).find(":selected").val();
+
+        /*foreach wagon in model
+         * div maken met data- attribuut (bijvoorbeeld data-wagon-id  <img data-wagon-id="model.Id")  <div class="data-wagonID"></div>
+         * css class maken met display:none en die aan al die divs geven
+         * al deze divs inladen in een array (kun je doen op basis van de class-naam, moet je even Googlen) .data("wagon-id")
+         * dan in de Wagonnumber onchange event selecteer je de div waarbij de data-wagon-id === id van select
+         * en dan kun je deze met javascript of jquery selecteren en dan de display van none afhalen met .attr('display:block') bijvoorbeeld
+         */
+
+      });
+</script>

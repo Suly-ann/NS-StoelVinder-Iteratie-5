@@ -6,13 +6,20 @@ namespace StoelVinder.lib.DAL.Models
     {
         public int ID { get; set; }
         public string Row { get; set; }
-        public bool IsGereserveerd { get; set; } 
+        public bool IsReserved { get; set; }
+        public List<Ticket> Tickets { get; set; }
 
-        public Seat(int id, string rij, bool isGereserveerd)
+        public Seat(int id, string row, bool isReserved)
         {
-            this.ID = id;
-            this.Row = rij;
-            this.IsGereserveerd = isGereserveerd;
+            ID = id;
+            Row = row;
+            IsReserved = isReserved;
+            List<Ticket> tickets = new List<Ticket>();
+        }
+
+        public Seat(int id)
+        {
+            ID = id;
         }
 
         public Seat()

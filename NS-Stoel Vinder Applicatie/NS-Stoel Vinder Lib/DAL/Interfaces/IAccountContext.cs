@@ -1,26 +1,20 @@
-﻿using System;
+﻿using StoelVinder.lib.DAL.Models;
 
 namespace StoelVinder.lib.DAL.Interfaces
 {
     public interface IAccountContext
     {
-        //bool Login(Account login);
-
-        bool Login(string email, string password);
+        bool Login(Account account);
         
-        bool Registration(string firstname, string insertion, string lastname, DateTime dateofbirth, string email, string password);
+        bool Registration(Account account);
 
-        bool CheckIfEmailExist(string email);
+        bool CheckIfEmailExist(Account account);
 
-        bool CheckEmailAndPassword(string email, string password);
+        bool CheckEmailAndPassword(Account account);
 
-        //bool DeleteAccount(string firstname, string email);
+        bool DeleteAccount(Account account);
 
-        bool DeleteAccount(string email, string password);
-
-        bool ResetPassword(string email, string password);
-
-      
+        bool ResetPassword(Account account);      
 
     }
 }

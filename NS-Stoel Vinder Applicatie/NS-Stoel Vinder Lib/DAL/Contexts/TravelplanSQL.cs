@@ -9,9 +9,7 @@ namespace StoelVinder.lib.DAL.Contexts
 {
     public class TravelplanSQL : ITravelplanContext
     {
-
-        DatabaseConnection connection = new DatabaseConnection();
-        public SqlConnection con;
+        readonly DatabaseConnection connection = new DatabaseConnection();
 
         public List<Station> GetStationsOnly()
         {
@@ -38,13 +36,13 @@ namespace StoelVinder.lib.DAL.Contexts
             return stations;
         }
 
-        public List<Travelplan> GetTravelplans(string beginStation, string eindStation)
+        public List<Travelplan> GetTravelplans(Travelplan travelplan)
         {
             List<Travelplan> travelplans = new List<Travelplan>();
             string query = "SELECT * FROM dbo.Reisplan where Beginstation=@begin And Eindstation=@eind Order By Tijd ASC";
             List<KeyValuePair<string, string>> parameters = new List<KeyValuePair<string, string>>();
-            parameters.Add(new KeyValuePair<string, string>("begin", beginStation));
-            parameters.Add(new KeyValuePair<string, string>("eind", eindStation));
+            parameters.Add(new KeyValuePair<string, string>("begin", travelplan.Startstation));
+            parameters.Add(new KeyValuePair<string, string>("eind", travelplan.Endstation));
 
             DataSet dataSet = connection.ExecuteSql(query, parameters);
 
@@ -52,8 +50,8 @@ namespace StoelVinder.lib.DAL.Contexts
             {
                 for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    Travelplan travelplan = DataTableToTravelplan(dataSet, i);
-                    travelplans.Add(travelplan);
+                    Travelplan reisplan = DataTableToTravelplan(dataSet, i);
+                    travelplans.Add(reisplan);
                 }
             }
             catch (Exception e)

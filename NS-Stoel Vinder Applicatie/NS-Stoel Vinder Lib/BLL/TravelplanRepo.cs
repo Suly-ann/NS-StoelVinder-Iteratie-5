@@ -17,15 +17,10 @@ namespace StoelVinder.lib.BLL
             return context.GetStationsOnly();
         }
 
-        public List<Travelplan> GetTravelplans(string Beginstation, string Eindstation)
+        public List<Travelplan> GetTravelplans(Travelplan travelplan)
         {
-            return context.GetTravelplans(Beginstation, Eindstation);
+            return context.GetTravelplans(travelplan);
         }
-
-        //internal object GetTravelplans(string Beginstation, string Eindstation)
-        //{
-        //    return context.GetTravelplans(Beginstation, Eindstation);
-        //}
        
     }
 }

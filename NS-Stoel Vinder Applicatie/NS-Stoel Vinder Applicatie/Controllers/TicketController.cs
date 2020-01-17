@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NS_Stoel_Vinder_Applicatie.ViewModels;
 using Microsoft.AspNetCore.Http;
 using StoelVinder.lib.BLL;
 using StoelVinder.lib.DAL.Contexts;
-using StoelVinder.lib.DAL.Models;
-using NS_Stoel_Vinder_Applicatie.Converters;
-using System;
 
 namespace NS_Stoel_Vinder_Applicatie.Controllers
 {
@@ -59,22 +55,12 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
         }
 
-        [HttpPost]
-        public IActionResult Ticket(TicketViewModel ticket)
-        {
-
-            return RedirectToAction("Travelplan", "Travelplan");
-        }
-
-
         public IActionResult DownloadFile()
         {
-
             //    string path = AppDomain.CurrentDomain.BaseDirectory + "FolderName/";
             //    byte[] fileBytes = System.IO.File.ReadAllBytes(path + "filename.extension");
             //    string fileName = "filename.extension";
             //  return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
-
 
             return View();
 

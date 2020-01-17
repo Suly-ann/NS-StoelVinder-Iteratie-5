@@ -9,59 +9,17 @@ namespace StoelVinder.lib.DAL.Contexts
 {
     public class SeatSQL : ISeatContext
     {
-
-        DatabaseConnection connection = new DatabaseConnection();
-       
-        public bool SeatPosition(Seat seat)
-        {
-
-            try
-            {
-                connection.OpenConnection();
-
-                SqlCommand cmd = new SqlCommand("INSERT INTO [StoelPositie] (StoelID, Rij) VALUES (@StoelID, @Rij)", connection.con);
-
-
-                if (!IsReserved(seat))
-                {
-                    cmd.Parameters.AddWithValue("@StoelID", seat.ID);
-                    cmd.Parameters.AddWithValue("@Rij", seat.Row);
-    
-                    int retAffectedRows = (int)cmd.ExecuteScalar();
-                    if (retAffectedRows == -1)
-
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                return false;
-
-            }
-
-            finally
-            {
-                connection.CloseConnection();
-
-            }
-            return false;
-        }
-
+        readonly DatabaseConnection connection = new DatabaseConnection();
 
         //Check if Seat is busy
         public bool IsReserved(Seat seat)
         {
-
             try
             {
                 connection.OpenConnection();
                 DataTable dtbl = new DataTable();
                 SqlDataAdapter sda = new SqlDataAdapter();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [StoelPositie] WHERE StoelID = @StoelID AND Rij = @Rij", connection.con);
+                SqlCommand cmd = new SqlCommand("SELECT IsReserved FROM [StoelPositie] WHERE StoelID = @StoelID AND Rij = @Rij", connection.con);
                 cmd.Parameters.AddWithValue("@StoelID", seat.ID);
                 cmd.Parameters.AddWithValue("@Rij", seat.Row);
                 sda.SelectCommand = cmd;
@@ -72,24 +30,21 @@ namespace StoelVinder.lib.DAL.Contexts
                     return true;
                 }
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 return false;
             }
-
             finally
             {
-
                 connection.CloseConnection();
-
             }
             return false;
         }
 
-        public List<Seat> GetAllSeat1steKlasse(string Beginstation, string Eindstation, int Spoor/*, int Wagonnummer*/)
+        public List<Seat> GetAllSeat1steKlasse(Travelplan travelplan/*, int Wagonnummer*/)
         {
+            connection.OpenConnection();
             List<Seat> Seats = new List<Seat>();
 
             string query = "SELECT StoelID, Rij, IsReserved " +
@@ -103,14 +58,13 @@ namespace StoelVinder.lib.DAL.Contexts
                 //"AND Wagon.Nummer = @Wagon.Nummer " +
                 "AND Spoor = @Spoor";
             {
-                connection.OpenConnection();
-
+               
                 using (SqlCommand cmd = new SqlCommand(query, connection.con))
                 {
-                    cmd.Parameters.AddWithValue("@Beginstation", Beginstation);
-                    cmd.Parameters.AddWithValue("@Eindstation", Eindstation);
+                    cmd.Parameters.AddWithValue("@Beginstation", travelplan.Startstation);
+                    cmd.Parameters.AddWithValue("@Eindstation", travelplan.Endstation);
                     //cmd.Parameters.AddWithValue("@Wagon.Nummer", Wagonnummer);
-                    cmd.Parameters.AddWithValue("@Spoor", Spoor);
+                    cmd.Parameters.AddWithValue("@Spoor", travelplan.Railstation);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -119,15 +73,14 @@ namespace StoelVinder.lib.DAL.Contexts
                         }
                     }
                 }
-
                 connection.CloseConnection();
             }
-
             return Seats;
         }
 
-        public List<Seat> GetAllSeat2deKlasse(string Beginstation, string Eindstation, int Spoor)
+        public List<Seat> GetAllSeat2deKlasse(Travelplan travelplan)
         {
+            connection.OpenConnection();
             List<Seat> Seats = new List<Seat>();
 
             string query = "SELECT StoelID, Rij, IsReserved " +
@@ -140,13 +93,11 @@ namespace StoelVinder.lib.DAL.Contexts
                 "AND Eindstation = @Eindstation " +
                 "AND Spoor = @Spoor";
             {
-                connection.OpenConnection();
-
-                using (SqlCommand cmd = new SqlCommand(query, connection.con))
+               using (SqlCommand cmd = new SqlCommand(query, connection.con))
                 {
-                    cmd.Parameters.AddWithValue("@Beginstation", Beginstation);
-                    cmd.Parameters.AddWithValue("@Eindstation", Eindstation);
-                    cmd.Parameters.AddWithValue("@Spoor", Spoor);
+                    cmd.Parameters.AddWithValue("@Beginstation", travelplan.Startstation);
+                    cmd.Parameters.AddWithValue("@Eindstation", travelplan.Endstation);
+                    cmd.Parameters.AddWithValue("@Spoor", travelplan.Railstation);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -155,10 +106,8 @@ namespace StoelVinder.lib.DAL.Contexts
                         }
                     }
                 }
-
                 connection.CloseConnection();
             }
-
             return Seats;
         }
 

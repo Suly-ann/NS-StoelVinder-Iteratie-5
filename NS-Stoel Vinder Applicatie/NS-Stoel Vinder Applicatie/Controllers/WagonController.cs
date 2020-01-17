@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NS_Stoel_Vinder_Applicatie.ViewModels;
@@ -42,11 +40,9 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
             }
             else
             {
-                string startstation = HttpContext.Session.GetString("Beginstation");
-                string endstation = HttpContext.Session.GetString("Eindstation");
-                int trainrail = (int)HttpContext.Session.GetInt32("Spoor");
-                List<int> wagonnummers = wagonRepo.GetWagonNumber1steKlasse(startstation, endstation, trainrail);
-                List<Seat> seats = seatRepo.GetAllSeat1steKlasse(startstation, endstation, trainrail);
+                Travelplan travel = new Travelplan(HttpContext.Session.GetString("Beginstation"), HttpContext.Session.GetString("Eindstation"), (int)HttpContext.Session.GetInt32("Spoor"));
+                List<int> wagonnummers = wagonRepo.GetWagonNumber1steKlasse(travel);
+                List<Seat> seats = seatRepo.GetAllSeat1steKlasse(travel);
 
                 TrainViewModel wagonView = new TrainViewModel()
                 {
@@ -67,11 +63,9 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
             }
             else
             {
-                string startstation = HttpContext.Session.GetString("Beginstation");
-                string endstation = HttpContext.Session.GetString("Eindstation");
-                int trainrail = (int)HttpContext.Session.GetInt32("Spoor");
-                List<int> wagonnummers = wagonRepo.GetWagonNumber2deKlasse(startstation, endstation, trainrail);
-                List<Seat> seats = seatRepo.GetAllSeat2deKlasse(startstation, endstation, trainrail);
+                Travelplan travel = new Travelplan(HttpContext.Session.GetString("Beginstation"), HttpContext.Session.GetString("Eindstation"), (int)HttpContext.Session.GetInt32("Spoor"));
+                List<int> wagonnummers = wagonRepo.GetWagonNumber2deKlasse(travel);
+                List<Seat> seats = seatRepo.GetAllSeat2deKlasse(travel);
 
                 TrainViewModel wagonView = new TrainViewModel()
                 {

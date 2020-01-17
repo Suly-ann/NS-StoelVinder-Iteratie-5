@@ -1,5 +1,4 @@
-﻿using System;
-using StoelVinder.lib.DAL.Interfaces;
+﻿using StoelVinder.lib.DAL.Interfaces;
 using StoelVinder.lib.DAL.Models;
 
 namespace StoelVinder.lib.BLL
@@ -13,12 +12,8 @@ namespace StoelVinder.lib.BLL
         }
         public void DisplayTicket(Ticket ticket)
         {
-            context.DisplayTicket(ticket.Firstname, ticket.Insertion, ticket.Lastname, ticket.Startstation, ticket.Endstation, ticket.Time, ticket.TrainClass);
+            context.DisplayTicket(ticket);
         }
 
-        public Account GetByName(string name)
-        {
-            return context.GetByName(name);
-        }
     }
 }

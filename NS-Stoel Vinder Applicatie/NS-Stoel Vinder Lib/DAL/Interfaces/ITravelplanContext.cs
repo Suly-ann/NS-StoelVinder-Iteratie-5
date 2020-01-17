@@ -6,8 +6,7 @@ namespace StoelVinder.lib.DAL.Interfaces
     public interface ITravelplanContext 
     {
         List<Station> GetStationsOnly();
-        List<Travelplan> GetTravelplans(string Beginstation, string Eindstation);
-      
+        List<Travelplan> GetTravelplans(Travelplan travelplan);      
 
     }
 

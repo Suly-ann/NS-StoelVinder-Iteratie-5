@@ -19,14 +19,14 @@ namespace StoelVinder.lib.BLL
             return context.GetWagonNumber();
         }
 
-        public List<int> GetWagonNumber1steKlasse(string Beginstation, string Eindstation, int Spoor)
+        public List<int> GetWagonNumber1steKlasse(Travelplan travelplan)
         {
-            return context.GetWagonNumber1steKlasse(Beginstation, Eindstation, Spoor);
+            return context.GetWagonNumber1steKlasse(travelplan);
         }
 
-        public List<int> GetWagonNumber2deKlasse(string Beginstation, string Eindstation, int Spoor)
+        public List<int> GetWagonNumber2deKlasse(Travelplan travelplan)
         {
-            return context.GetWagonNummer2deKlasse(Beginstation, Eindstation, Spoor);
+            return context.GetWagonNummer2deKlasse(travelplan);
         }
     }
 }

@@ -18,7 +18,7 @@
         <br />
         <br /> 
         <div class="form-inline my-2 my-lg-0" style="width: 50rem;">
-            <input class="form-control mr-sm-2 w-100 text-center" type="search" id="myInput" onkeyup="myFunction()" placeholder="Zoek uw tijd hier..." title="Type een tijd in" aria-label="Search">
+            <input class="form-control mr-sm-2 w-100 text-center" type="search" id="myInput" onkeyup="searchBar()" placeholder="Zoek uw tijd hier..." title="Type een tijd in" aria-label="Search">
         </div>
         <div class="card" style="width: 50rem;">
             <br />
@@ -36,7 +36,6 @@
                         {
                             <tr>
                                 <td>
-                                    @*<a asp-controller="Travelplan" asp-action="ReisplanDetails"  asp-route-id="@tvp.ID">*@
                                     <a href="@Url.Action("ClassView", "Wagon", new {trainrail = tvp.Railstation})">
                                         @tvp.Time.ToShortTimeString()
                                     </a>
@@ -49,7 +48,7 @@
                 </table>
 
                 <script>
-                    function myFunction() {
+                    function searchBar() {
                         var input, filter, table, tr, td, i, txtValue;
                         input = document.getElementById("myInput");
                         filter = input.value.toUpperCase();

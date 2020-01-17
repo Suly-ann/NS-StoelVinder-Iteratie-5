@@ -25,10 +25,10 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
             }
             else
             {
-                string startstation = HttpContext.Session.GetString("Beginstation");
-                string endstation = HttpContext.Session.GetString("Eindstation");
-                int trainrail = (int)HttpContext.Session.GetInt32("Spoor");
-                List<Seat> seats = seatRepo.GetAllSeat1steKlasse(startstation, endstation, trainrail);
+                Travelplan travelplan = new Travelplan(HttpContext.Session.GetString("Beginstation"), HttpContext.Session.GetString("Eindstation"), (int)HttpContext.Session.GetInt32("Spoor"));
+               
+                //int wagonnumber = (int)HttpContext.Session.GetInt32("Wagonnummer");
+                List<Seat> seats = seatRepo.GetAllSeat1steKlasse(travelplan /*, wagonnumber*/);
 
                 TrainViewModel seatView = new TrainViewModel()
                 {
@@ -37,7 +37,6 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
                 return View(seatView);
             }
-
         }
 
         public IActionResult SecondClass()
@@ -48,11 +47,10 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
             }
             else
             {
+                Travelplan travelplan = new Travelplan(HttpContext.Session.GetString("Beginstation"), HttpContext.Session.GetString("Eindstation"), (int)HttpContext.Session.GetInt32("Spoor"));
 
-                string startstation = HttpContext.Session.GetString("Beginstation");
-                string endstation = HttpContext.Session.GetString("Eindstation");
-                int trainrail = (int)HttpContext.Session.GetInt32("Spoor");
-                List<Seat> seats = seatRepo.GetAllSeat2deKlasse(startstation, endstation, trainrail);
+                //int wagonnumber = (int)HttpContext.Session.GetInt32("Wagonnummer");
+                List<Seat> seats = seatRepo.GetAllSeat2deKlasse(travelplan /*, wagonnumber*/);
 
                 TrainViewModel seatView = new TrainViewModel()
                 {
@@ -61,7 +59,6 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
                 return View(seatView);
             }
-
         }
 
 
@@ -70,6 +67,5 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
     }
 }

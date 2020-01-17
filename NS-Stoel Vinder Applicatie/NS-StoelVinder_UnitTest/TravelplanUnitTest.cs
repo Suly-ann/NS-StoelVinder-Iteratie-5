@@ -3,6 +3,7 @@ using NS_Stoel_Vinder_Lib.DAL.Contexts.TestContext;
 using StoelVinder.lib.BLL;
 using StoelVinder.lib.DAL.Models;
 using System;
+using System.Collections.Generic;
 
 namespace NS_StoelVinder_UnitTest
 {
@@ -10,45 +11,36 @@ namespace NS_StoelVinder_UnitTest
     public class TravelplanUnitTest
     {
         private readonly TravelplanTestContext travelplanTestContext = new TravelplanTestContext();
+        private TravelplanRepo travelplanRepro;
 
-        [TestInitialize]
+       [TestInitialize]
         public void Setup()
         {
-            
+            travelplanRepro = new TravelplanRepo(travelplanTestContext);
         }
 
         [TestMethod]
-        public void TestValidTravelplan()
+        public void TestGetAllStations()
+        {
+            List<Station> Stations = new List<Station>();
+            Stations = travelplanRepro.GetStationsOnly();
+            Assert.AreEqual(1, Stations.Count);
+        }
+
+        [TestMethod]
+        public void TestValidGetTravelplans()
         {
             Travelplan travelplan = new Travelplan("Beginstation", "Eindstation");
-            bool testtravelplan = travelplanTestContext.TravelplanContext(travelplan.Startstation, travelplan.Endstation);
-            Assert.IsTrue(testtravelplan);
+            List<Travelplan> Stations = travelplanRepro.GetTravelplans(travelplan);
+            Assert.AreEqual(1, Stations.Count);
         }
 
         [TestMethod]
-        public void TestNotValidTravelplan()
+        public void TestNotValidGetTravelplans()
         {
-            Travelplan travelplan = new Travelplan("Beginstation", "Beginstation");
-            bool testtravelplan = travelplanTestContext.TravelplanContext(travelplan.Startstation, travelplan.Endstation);
-            Assert.IsFalse(testtravelplan);
-
-        }
-
-        [TestMethod]
-        public void TestValidTime()
-        {
-            Travelplan travelplan = new Travelplan(DateTime.Today, 11, 5462);
-            bool testtravelplan = travelplanTestContext.TimeContext(travelplan.Time, travelplan.Railstation, travelplan.Trainnr);
-            Assert.IsTrue(testtravelplan);
-        }
-
-        [TestMethod]
-        public void TestNotValidRegistration()
-        {
-            Travelplan travelplan = new Travelplan(DateTime.Now, 5, 7864);
-            bool testtravelplan = travelplanTestContext.TimeContext(travelplan.Time, travelplan.Railstation, travelplan.Trainnr);
-            Assert.IsFalse(testtravelplan);
-
+            Travelplan travelplan = new Travelplan("Eind", "Begin");
+            List<Travelplan> Stations = travelplanRepro.GetTravelplans(travelplan);
+            Assert.AreNotEqual(1, Stations.Count);
         }
 
     }

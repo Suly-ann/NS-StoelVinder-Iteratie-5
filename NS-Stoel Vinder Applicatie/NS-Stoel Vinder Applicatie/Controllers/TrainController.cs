@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using NS_Stoel_Vinder_Applicatie.ViewModels;
 
 namespace NS_Stoel_Vinder_Applicatie.Controllers
@@ -18,7 +13,6 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
 
         public IActionResult Train()
         {
-
             return View();
         }
 

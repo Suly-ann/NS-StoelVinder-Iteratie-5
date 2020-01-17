@@ -15,7 +15,7 @@ namespace NS_Stoel_Vinder_Applicatie.ViewModels
         public DateTime Time { get; set; }
         public int Railstation { get; set; }
         public int Trainnr { get; set; }
-
         public List<Travelplan> Trt { get; set; }
+
     }
 }

@@ -1,25 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using NS_Stoel_Vinder_Applicatie;
 using Microsoft.AspNetCore.Http;
 using StoelVinder.lib.BLL;
 using StoelVinder.lib.DAL.Contexts;
-using StoelVinder.lib.DAL;
 using NS_Stoel_Vinder_Applicatie.ViewModels;
 using StoelVinder.lib.DAL.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace NS_Stoel_Vinder_Applicatie.Controllers
 {
     public class TravelplanController : Controller
     {
         readonly TravelplanRepo travelplanRepo = new TravelplanRepo(new TravelplanSQL());
-        readonly HistoryRepo historynRepo = new HistoryRepo(new HistorySQL());
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        private void ReadCookie(string name)
+        {
+            ViewBag.cookievalue = Request.Cookies[name].ToString();
         }
 
         [HttpGet]
@@ -46,18 +47,13 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
         [HttpPost]
         public IActionResult Travelplan(TravelplanViewModel t)
         {
-
             HttpContext.Session.SetString("Beginstation", t.Beginstation);
             HttpContext.Session.SetString("Eindstation", t.Eindstation);
-            //TempData["beginStation"] = t.Beginstation;
-            //TempData["eindStation"] = t.Eindstation;
-
             return RedirectToAction("Times", "Travelplan");
-
         }
 
         [HttpGet]
-        public IActionResult Times(TimesViewModel times)
+        public IActionResult Times()
         {
             if (HttpContext.Session.GetString("Emailadres") == null)
             {
@@ -65,24 +61,13 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
             }
             else
             {
-                List<Travelplan> tvt = travelplanRepo.GetTravelplans(HttpContext.Session.GetString("Beginstation"), HttpContext.Session.GetString("Eindstation"));
-                TimesViewModel timesViewModel = new TimesViewModel()
+                Travelplan travelplan = new Travelplan(HttpContext.Session.GetString("Beginstation"), HttpContext.Session.GetString("Eindstation"));
+                List<Travelplan> tvt = travelplanRepo.GetTravelplans(travelplan);
+                TimesViewModel timesViewModel = new TimesViewModel
                 {
                     Trt = tvt
                 };
                 return View(timesViewModel);
-            }
-        }
-
-        public IActionResult History(HistoryViewModel history)
-        {
-            if (HttpContext.Session.GetString("Emailadres") == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            else
-            {
-                return View(history);
             }
         }
 
@@ -91,10 +76,6 @@ namespace NS_Stoel_Vinder_Applicatie.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        private void ReadCookie(string name)
-        {
-            ViewBag.cookievalue = Request.Cookies[name].ToString();
-        }
+       
     }
 }

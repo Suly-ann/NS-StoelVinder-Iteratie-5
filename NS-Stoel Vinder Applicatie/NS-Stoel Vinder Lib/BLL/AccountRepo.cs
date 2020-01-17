@@ -1,5 +1,5 @@
-﻿using NS_Stoel_Vinder_Lib.DAL.Models;
-using StoelVinder.lib.DAL.Interfaces;
+﻿using StoelVinder.lib.DAL.Interfaces;
+using StoelVinder.lib.DAL.Models;
 
 namespace StoelVinder.lib.BLL
 {
@@ -13,45 +13,34 @@ namespace StoelVinder.lib.BLL
             this.context = context;
         }
 
-
-        //public bool Login(Account login)
-        //{
-        //    return context.Login(login);
-        //}
-
-        //public bool Login(InlogViewModel login)
-        //{
-        //    return context.Login(login.Email, login.Password);
-        //}
-
-        public bool Registration(RegistrationModel registration)
+        public bool Registration(Account account)
         {
-            return context.Registration(registration.Firstname, registration.Insertion, registration.Lastname, registration.DateOfBirth, registration.Email, registration.Password);
+            return context.Registration(account);
         }
 
-        public bool CheckIfEmailExist(string email)
+        public bool CheckIfEmailExist(Account account)
         {
-            return context.CheckIfEmailExist(email);
+            return context.CheckIfEmailExist(account);
         }
 
-        public bool LogintoTravelplan(InlogModel login)
+        public bool LogintoTravelplan(Account account)
         {
-            return context.Login(login.Email, login.Password);
+            return context.Login(account);
         }
 
-        public bool CheckEmailAndPassword(string email, string password)
+        public bool CheckEmailAndPassword(Account account)
         {
-            return context.CheckEmailAndPassword(email, password);
+            return context.CheckEmailAndPassword(account);
         }
 
-        public bool DeleteAccount(Delete delete)
+        public bool DeleteAccount(Account account)
         {
-            return context.DeleteAccount(delete.Email, delete.Password);
+            return context.DeleteAccount(account);
         }
 
-        public bool ResetPassword(ResetPasswordModel reset)
+        public bool ResetPassword(Account account)
         {
-            return context.ResetPassword(reset.Email, reset.Password);
+            return context.ResetPassword(account);
         }
 
     }
